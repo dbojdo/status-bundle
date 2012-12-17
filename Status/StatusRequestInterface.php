@@ -4,14 +4,13 @@ use Webit\Bundle\StatusBundle\Subject\StatusableInterface;
 
 interface StatusRequestInterface {
 	/**
-	 * Subject ID
-	 * @return mixed
+	 * @return StatusableInterface|null
 	 */
-	public function getId();
+	public function getSubject();
 	
 	/**
-	 * New status ID
-	 * @return mixed
+	 * Required status
+	 * @return StatusInterface
 	 */
 	public function getStatus();
 	
@@ -26,16 +25,5 @@ interface StatusRequestInterface {
 	 * @return array
 	 */
 	public function getMisc();
-	
-	/**
-	 * @return StatusableInterface|null
-	 */
-	public function getSubject();	
-	
-	/**
-	 * Used by SubjectProvider
-	 * @param StatusableInterface $subject
-	 */
-	public function setSubject(StatusableInterface $subject)
 }
 ?>

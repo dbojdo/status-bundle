@@ -1,8 +1,12 @@
 parameters:
-  webit_status.status_handler.class: Webit\Bundle\Status\Handler\StatusHandler
-
+  webit_status.status_handler.class: Webit\Bundle\StatusBundle\Handler\StatusHandler
+  webit_status.status_provider.static.class: Webit\Bundle\StatusBundle\Status\StatusProviderStatic
 services:
   webit_status.status_handler:
     class: %webit_status.status_handler.class%
     calls:
       - [setContainer, [@service_container]]
+  webit_status.status_provider.static:
+    class: %webit_status.status_provider.static.class:%
+  webit_status.status_provider:
+    alias: %webit_status.status_provider.default%
