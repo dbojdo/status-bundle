@@ -1,0 +1,8 @@
+parameters:
+  webit_status.status_handler.class: Webit\Bundle\Status\Handler\StatusHandler
+
+services:
+  webit_status.status_handler:
+    class: %webit_status.status_handler.class%
+    calls:
+      - [setContainer, [@service_container]]
