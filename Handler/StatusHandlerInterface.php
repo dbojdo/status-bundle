@@ -1,5 +1,5 @@
 <?php
-namespace Webit\Bundle\StatusBundle\Component\Handler;
+namespace Webit\Bundle\StatusBundle\Handler;
 use Webit\Bundle\StatusBundle\Status\StatusRequestInterface;
 
 interface StatusHandlerInterface {

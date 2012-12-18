@@ -5,7 +5,7 @@ interface SubjectProviderInterface {
 	/**
 	 * 
 	 * @param mixed $id
-	 * @return StatusableInterface|null
+	 * @return StatusAwareInterface|null
 	 */
 	public function getSubject($id);
 }

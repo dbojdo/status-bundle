@@ -1,11 +1,11 @@
 <?php
 namespace Webit\Bundle\StatusBundle\Status;
-use Webit\Bundle\StatusBundle\Subject\StatusableInterface;
+use Webit\Bundle\StatusBundle\Subject\StatusAwareInterface;
 
 class StatusRequest implements StatusRequestInterface {
 	/**
 	 *
-	 * @var StatusableInterface
+	 * @var StatusAwareInterface
 	 */
 	protected $subject;
 
@@ -27,7 +27,7 @@ class StatusRequest implements StatusRequestInterface {
 	 */
 	protected $misc;
 
-	public function __construct(StatusableInterface $subject, StatusInterface $status, $type=null, $misc = array()) {
+	public function __construct(StatusAwareInterface $subject, StatusInterface $status, $type=null, $misc = array()) {
 		$this->setSubject($subject);
 		$this->setStatus($status);
 		$this->setType($type);
@@ -62,7 +62,7 @@ class StatusRequest implements StatusRequestInterface {
 		return $this->subject;
 	}
 
-	public function setSubject(StatusableInterface $subject) {
+	public function setSubject(StatusAwareInterface $subject) {
 		$this->subject = $subject;
 	}
 }

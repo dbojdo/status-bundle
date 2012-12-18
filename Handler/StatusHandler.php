@@ -1,13 +1,14 @@
 <?php
-namespace Webit\Bundle\StatusBundle\Component\Handler;
-use Webit\Bundle\StatusBundle\Status\Event;
+namespace Webit\Bundle\StatusBundle\Handler;
 
+use Symfony\Component\DependencyInjection\ContainerAware;
+use Webit\Bundle\StatusBundle\Status\Event;
 use Webit\Bundle\StatusBundle\Status\Events;
 use Webit\Bundle\StatusBundle\Status\StatusRequestInterface;
 
 class StatusHandler extends ContainerAware implements StatusHandlerInterface {
 	public function changeStatus(StatusRequestInterface $statusRequest) {
-		$ed = $this->container->get('kernel.event_dispatcher');
+		$ed = $this->container->get('event_dispatcher');
 		
 		$preEvent = new Event($statusRequest);
 		$ed->dispatch(Events::EVENT_PRE_STATUS_CHANGE,$preEvent);

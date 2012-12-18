@@ -7,6 +7,6 @@ services:
     calls:
       - [setContainer, [@service_container]]
   webit_status.status_provider.static:
-    class: %webit_status.status_provider.static.class:%
+    class: %webit_status.status_provider.static.class%
   webit_status.status_provider:
-    alias: %webit_status.status_provider.default%
+    alias: webit_status.status_provider.static

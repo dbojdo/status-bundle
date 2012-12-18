@@ -8,9 +8,17 @@ class StatusProviderStatic implements StatusProviderInterface {
 	
 	public function getStatus($statusCode, $statusType = null) {
 		$statusType = $statusType ?: '_default';
-		if(key_exists($statusType, static::$statusList)) {
-			return key_exists($statusCode,static::$statusList[$statusType]) ? static::$statusList[$statusType][$statusCode] : null;
+		if(key_exists($statusType, $this->statusList)) {
+			if(key_exists($statusCode, $this->statusList[$statusType])) {
+				if(!($this->statusList[$statusType][$statusCode] instanceof StatusInterface)) {
+					$this->statusList[$statusType][$statusCode] = new Status($statusCode,$this->statusList[$statusType][$statusCode]);
+				}
+				
+				return $this->statusList[$statusType][$statusCode]; 
+			} 
 		}
+		
+		return null;
 	}
 }
 ?>

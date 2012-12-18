@@ -19,12 +19,7 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('webit_status');
-				$rootNode
-					->children()
-						->scalarNode('status_provider.default')->defaultValue('Webit\Bundle\StatusBundle\Status\StatusProviderStatic')->end();
-					->end()
-				->end();
-					
+				
         return $treeBuilder;
     }
 }

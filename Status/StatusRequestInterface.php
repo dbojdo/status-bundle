@@ -1,10 +1,10 @@
 <?php
 namespace Webit\Bundle\StatusBundle\Status;
-use Webit\Bundle\StatusBundle\Subject\StatusableInterface;
+use Webit\Bundle\StatusBundle\Subject\StatusAwareInterface;
 
 interface StatusRequestInterface {
 	/**
-	 * @return StatusableInterface|null
+	 * @return StatusAwareInterface|null
 	 */
 	public function getSubject();
 	
